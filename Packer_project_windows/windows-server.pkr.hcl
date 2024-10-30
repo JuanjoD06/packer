@@ -14,7 +14,7 @@ source "vmware-iso" "windows_server" {
   iso_checksum         = "052c7d7785a99db7c5ff710090050fbd424a2f17312f0c6463e959e4e19cee98"      
   communicator         = "winrm"
   winrm_username       = "Administrator"
-  winrm_password       = ""
+  winrm_password       = "Windowsserver2022"
   winrm_timeout        = "6h"
 
   vm_name              = "Windows-Server"
