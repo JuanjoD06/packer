@@ -41,11 +41,7 @@ source "vmware-iso" "windows_server" {
 build {
   sources = ["source.vmware-iso.windows_server"]
 
-  provisioner "powershell" {
-    inline = [
-      "Write-Host 'Provisioning Windows Server...'",
-      "Set-ExecutionPolicy Bypass -Scope Process -Force",
-      "Install-WindowsFeature -name Web-Server -IncludeManagementTools"
-    ]
+  provisioner "windows-shell" {
+    script = "scripts\\setup.ps1"
   }
 }
