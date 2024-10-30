@@ -1,0 +1,27 @@
+#cloud-config
+autoinstall:
+  enable: true
+  version: 1
+  early-commands:
+    - rm /etc/cloud/cloud.cfg.d/99-autocloud.cfg
+  locale: es_ES.UTF-8
+  keyboard:
+    layout: es
+  network:
+    ethernets:
+      eth0:
+        dhcp4: true
+    version: 2
+  users:
+    - name: ubuntu
+      sudo: ALL=(ALL) NOPASSWD:ALL
+      groups: sudo
+      shell: /bin/bash
+      password: ubuntu
+  packages:
+    - openssh-server
+  bootcmd:
+    - [ apt-get, update ]
+    - [ apt-get, install, -y, linux-generic-hwe-22.04 ]
+  final-message: "Instalación completa. Por favor, reinicie."
+  reboot: true

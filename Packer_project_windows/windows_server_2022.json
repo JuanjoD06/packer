@@ -1,0 +1,41 @@
+{
+    "builders": [
+      {
+        "type": "vmware-iso",
+        "iso_url": "C:\\isos\\SERVER_EVAL_x64FRE_es-es.iso",
+        "iso_checksum": "052c7d7785a99db7c5ff710090050fbd424a2f17312f0c6463e959e4e19cee98",
+        "vm_name": "Windows Server 2022",
+        "vmx_data": {
+          "numvcpus": 2,
+          "memory": 4096,
+          "disk_size": 127000,
+          "scsi0.virtualDev": "lsisas1068"
+        },
+        "communicator": "winrm",
+        "winrm_username": "Administrador",
+        "winrm_password": "123456789",
+        "winrm_timeout": "30m"
+      }
+    ],
+    "provisioners": [
+      {
+        "type": "windows-shell",
+        "script": "scripts\\setup.ps1"
+      }
+    ],
+    "variables": {
+      "iso_url": "C:\\isos\\SERVER_EVAL_x64FRE_es-es.iso",
+      "iso_checksum": "052c7d7785a99db7c5ff710090050fbd424a2f17312f0c6463e959e4e19cee98"
+    },
+    "boot_command": [
+      "<esc><wait>",
+      "<enter><wait>",
+      "NO DRIVER SIGNATURE CHECK<wait>",
+      "/install/vmlinuz<wait> noapic<wait> ",
+      "kernel /install/vmlinuz vga=788 ",
+      "<esc><wait><boot><esc>"
+    ]
+  }
+
+
+  

@@ -1,0 +1,24 @@
+{
+  "builders": [{
+    "type": "virtualbox-iso",
+    "guest_os_type": "Ubuntu_64",
+    "iso_checksum": "9bc6028870aef3f74f4e16b900008179e78b130e6b0b9a140635434a46aa98b0",
+    "iso_url": "file:///C:/isos/ubuntu-22.04.5-live-server-amd64.iso",
+    "ssh_username": "ubuntu",
+    "ssh_password": "juan",
+    "ssh_port": 22,
+    "ssh_wait_timeout": "60m",
+    "vm_name": "Ubuntu-22.04-Server",
+    "cpus": 2,
+    "memory": 2048,
+    "disk_size": 20000,
+    "boot_wait": "40s"
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "inline": [
+      "sudo apt-get update -y",
+      "sudo apt-get upgrade -y"
+    ]
+  }]
+}
