@@ -1,7 +1,7 @@
 # Configuración básica
 $computerName = "WS2022"
 $adminUsername = "Administrador"
-$adminPassword = "123456789"
+$adminPassword = "Windowsserver2022"
 
 # Configuración de red
 $interfaceIndex = (Get-NetAdapter).InterfaceIndex[0]
